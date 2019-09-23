@@ -33,7 +33,7 @@ node {
      
     stage('Run Container on Dev Server'){
 	def dockerRun = 'docker run -p 8081:8081 -d -name pi sampleacc54/nodeapp' 
-	sshagent(['pi-server']) {
+	sshagent(['pi']) {
 	sh "ssh -o StrictHostKeyChecking=no pi@10.69.36.250 ${dockerRun}"
 	}
 }
